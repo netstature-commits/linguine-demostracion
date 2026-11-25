@@ -6,7 +6,7 @@
 <title>Linguine Catering | Pizzas artesanales a leña</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#11100f;--paper:#f4eee4;--cream:#ffdf9d;--red:#e9564e;--red2:#db4c44;--muted:#aaa198;--line:rgba(255,255,255,.13);--serif:Georgia,'Times New Roman',serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--ink:#11100f;--paper:#ffffff;--cream:#FED995;--red:#e9564e;--red2:#db4c44;--muted:rgba(255,255,255,.66);--line:rgba(255,255,255,.13);--serif:Georgia,'Times New Roman',serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);overflow-x:hidden}button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.hidden{display:none!important}
 /* Intro */
 .intro{position:fixed;inset:0;z-index:50;background:#11100f;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s ease}.intro.done{opacity:0;visibility:hidden;pointer-events:none}.intro-inner{width:min(78vw,590px);text-align:center}.intro-art{width:min(100%,590px);height:auto;overflow:visible}.intro-art path{stroke:var(--cream);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.15s ease forwards}.intro-art path:nth-of-type(2n){animation-delay:.12s}.intro-art path:nth-of-type(3n){animation-delay:.22s}.intro-art path{fill-opacity:0;animation-name:draw,fillIn;animation-duration:2.15s,.55s;animation-delay:0s,1.65s;animation-fill-mode:forwards}.intro-art path:nth-of-type(2n){animation-delay:.1s,1.75s}.intro-art path:nth-of-type(3n){animation-delay:.2s,1.85s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fillIn{to{fill-opacity:1}}.intro-word{margin:18px 0 0;font:clamp(22px,4vw,34px) var(--serif);letter-spacing:.17em;color:var(--paper);opacity:0;animation:rise .7s 1.7s forwards}.intro-line{height:2px;width:0;background:var(--red);margin:18px auto 0;animation:lineIn .65s 2s forwards}@keyframes rise{to{opacity:1}}@keyframes lineIn{to{width:100px}}
@@ -89,7 +89,7 @@ body:has(#page-contacto.active) .cta-band,body:has(#page-catering.active) .cta-b
 @media(max-width:650px){.process{grid-template-columns:1fr;gap:34px;margin-top:60px}.process .display{font-size:58px}.cta-band{flex-direction:column;align-items:flex-start;width:calc(100% - 36px);padding:50px 0}}
 
 /* Base táctil */
-.menu-foot{display:none}.process-video{background:#1a1816 url(video-6-proceso-poster.webp) center/cover}
+.menu-foot{display:none}.process-video{background:#09090a url(video-6-proceso-poster.webp) center/contain no-repeat}
 button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .site-header{padding-top:env(safe-area-inset-top)}
 /* ============ MÓVIL ============ */
@@ -564,6 +564,410 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cream);outline-offs
 /* Ajustes de sobriedad: sin focos radiales ni resplandor decorativo. */
 .nav-links,.nav-links.open{background:#11100f!important}
 .oven-mouth:after{animation:none!important}
+
+
+/* ===== Ajuste final de controles, medios y experiencia móvil ===== */
+/* Los controles comparten una geometría estable; no se desbordan con textos largos. */
+.primary-btn,.secondary-btn,.order-top,.line-button,.text-link{
+  box-sizing:border-box;max-width:100%;min-width:0;text-decoration:none;
+}
+.primary-btn,.secondary-btn,.order-top{
+  min-height:52px;line-height:1.25;white-space:normal;text-align:left;
+}
+.primary-btn,.order-top{flex:0 1 auto}
+.secondary-btn{flex:0 1 auto}
+.hero-actions{align-items:stretch}
+.hero-actions .primary-btn,.hero-actions .secondary-btn{min-width:218px}
+.line-button{border:0;border-bottom:1px solid var(--cream);background:transparent;padding:7px 0;min-height:48px;justify-content:space-between;gap:16px;text-align:left}
+.line-button span{flex:0 0 30px}
+.text-link{line-height:1.45;text-align:left;white-space:normal}
+button.text-link{appearance:none;cursor:pointer}
+
+/* Fotografías y videos contenidos en marcos discretos y consistentes. */
+.step-image,.home-media-main,.home-media-side,.feature-img,.pz-photo,.cat-feature-photo,.process-video,.om,.gal-item,.vcard{
+  border:1px solid rgba(254,217,149,.16);background:#171614;overflow:hidden;
+}
+.home-media-grid{grid-template-columns:minmax(0,1.22fr) minmax(250px,.78fr);gap:18px;align-items:stretch}
+.home-media-main{height:auto;min-height:0;aspect-ratio:16/10;max-height:410px;border-radius:2px}
+.home-media-main img{height:100%;min-height:0;aspect-ratio:16/10;object-fit:cover}
+.home-media-side{min-height:0;border-radius:2px}
+.home-media-side>img{height:215px;min-height:0;object-fit:cover;object-position:center 38%}
+.home-media-side>div{padding:22px 23px 25px}
+.home-media-side.image-missing{display:none}
+.home-media-grid.side-image-missing{grid-template-columns:1fr}
+.home-media-main:focus-visible,.vcard:focus-visible,.gal-item:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+
+/* El video largo de catering conserva formato panorámico, pero no domina toda la pantalla. */
+.process-v2{grid-template-columns:minmax(250px,.72fr) minmax(0,1fr);gap:clamp(28px,5vw,58px);align-items:center}
+.process-v2 .process-video{width:100%;max-width:610px;max-height:344px;aspect-ratio:16/9;justify-self:end;border-radius:2px}
+.process-v2 .process-video video{width:100%;height:100%;object-fit:cover}
+
+/* Navegación móvil: enlaces limpios, grandes y alineados; no parecen botones deformados. */
+@media(max-width:960px){
+  .nav-wrap{width:calc(100% - 36px);height:68px;gap:14px}
+  .brand{min-width:0;flex:0 1 auto}
+  .brand img{width:118px;max-width:34vw;max-height:52px}
+  .menu-toggle{display:grid;place-items:center;position:relative;z-index:81;flex:0 0 44px;width:44px;height:44px;margin-left:auto;padding:0;border:1px solid rgba(254,217,149,.38);border-radius:50%;background:transparent;color:transparent;font-size:0;line-height:0}
+  .menu-toggle:before,.menu-toggle:after{content:'';position:absolute;width:18px;height:1.5px;background:var(--cream);transition:transform .25s ease}
+  .menu-toggle:before{transform:translateY(-4px)}
+  .menu-toggle:after{transform:translateY(4px)}
+  .menu-toggle[aria-expanded=true]:before{transform:rotate(45deg)}
+  .menu-toggle[aria-expanded=true]:after{transform:rotate(-45deg)}
+  .nav-links,.nav-links.open{
+    position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;
+    padding:calc(82px + env(safe-area-inset-top)) clamp(26px,8vw,48px) calc(28px + env(safe-area-inset-bottom));
+    background:#11100f!important;border:0;opacity:0;visibility:hidden;pointer-events:none;overflow-y:auto;
+    transition:opacity .28s ease,visibility .28s ease;
+  }
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
+  .nav-links>.nav-link{
+    appearance:none;display:flex;align-items:center;justify-content:flex-start;gap:13px;width:100%;min-height:57px;height:auto;
+    margin:0;padding:11px 0;border:0;border-bottom:1px solid rgba(255,255,255,.1);border-radius:0;background:transparent;
+    box-shadow:none;color:rgba(245,243,239,.72);font:400 clamp(27px,7.5vw,37px)/1.12 var(--serif);
+    letter-spacing:-.025em;text-align:left;text-transform:none;white-space:normal;opacity:0;transform:translateY(10px);
+    transition:opacity .3s ease,transform .3s ease,color .2s ease;
+  }
+  .nav-links>.nav-link.active{color:var(--cream)}
+  .nav-links>.nav-link.active:before{content:'';display:block;flex:0 0 19px;width:19px;height:1px;margin:0;background:var(--cream);border-radius:0}
+  .nav-links>.nav-link:after{display:none}
+  .nav-links.open>.nav-link{opacity:1;transform:none}
+  .nav-links.open>.nav-link:nth-child(1){transition-delay:.04s}
+  .nav-links.open>.nav-link:nth-child(2){transition-delay:.08s}
+  .nav-links.open>.nav-link:nth-child(3){transition-delay:.12s}
+  .nav-links.open>.nav-link:nth-child(4){transition-delay:.16s}
+  .nav-links.open>.nav-link:nth-child(5){transition-delay:.20s}
+  .nav-links.open>.nav-link:nth-child(6){transition-delay:.24s}
+  .menu-foot{display:block;margin-top:25px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);color:rgba(245,243,239,.6);font:12px/1.9 var(--sans);letter-spacing:.04em}
+  .nav-actions{display:none!important}
+}
+
+@media(max-width:700px){
+  .hero-v2{width:calc(100% - 36px);padding:30px 0 34px;gap:20px}
+  .hero-v2 .display{font-size:clamp(46px,12.6vw,63px);line-height:.98;letter-spacing:-.05em}
+  .hero-v2 .lead{font-size:14px;line-height:1.72;margin:16px 0 21px}
+  .hero-v2 .hero-actions{display:grid;grid-template-columns:1fr;gap:9px;width:100%}
+  .hero-v2 .hero-actions .primary-btn,.hero-v2 .hero-actions .secondary-btn{width:100%;min-width:0;justify-content:space-between;padding-left:17px;padding-right:14px}
+  .hero-visual-v2{aspect-ratio:1/1.02;max-height:430px}
+  .hero-v2 .hero-photo{inset:0 8px 12px 0}
+  .hero-v2 .hero-stamp{width:78px;height:78px;right:0;top:4%;font-size:11px}
+  .hero-image-caption{right:8px;bottom:0;max-width:calc(100% - 24px);padding:9px 11px;font-size:9px}
+  .service-ribbon{width:calc(100% - 36px)}
+  .service-ribbon>div,.service-ribbon>div:first-child{font-size:17px;padding:12px 0}
+  .section-pad{width:calc(100% - 36px);padding:62px 0}
+  .home-section-heading .section-title{font-size:clamp(39px,11vw,51px)}
+  .steps-grid{gap:28px}
+  .step-image{aspect-ratio:1.38/1;height:auto}
+  .step-card:nth-child(2),.step-card:nth-child(3){margin-top:0}
+  .steps-action{gap:12px;margin-top:28px;padding-top:17px}
+  .steps-action .text-link{width:auto}
+  .event-photo-band{min-height:430px;margin-top:8px;background-position:center 48%}
+  .event-photo-content{width:calc(100% - 36px);padding:54px 0}
+  .event-photo-content h2{font-size:clamp(39px,11.5vw,52px)}
+  .home-offer{padding:54px 18px;gap:23px}
+  .offer-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .offer-fact{min-width:0;padding:18px 8px 16px 0}
+  .offer-fact+.offer-fact{padding-left:9px}
+  .offer-fact strong{font-size:clamp(25px,7.5vw,34px);white-space:normal}
+  .offer-fact span{font-size:9px;line-height:1.4}
+  .offer-details-link{margin-top:0}
+  .home-media-grid{grid-template-columns:1fr;gap:12px}
+  .home-media-main{width:100%;min-height:0;height:auto;aspect-ratio:16/10;max-height:300px}
+  .home-media-main img{min-height:0;height:100%;aspect-ratio:16/10}
+  .home-media-side{display:flex;flex-direction:column;min-height:0}
+  .home-media-side>img{width:100%;height:auto;min-height:0;aspect-ratio:16/9;object-fit:cover}
+  .home-media-side>div{padding:18px 17px 20px}
+  .home-media-side p:not(.eyebrow){font-size:20px;margin-bottom:16px}
+  .featured-grid{gap:12px}
+  .feature-card,.feature-card:nth-child(2),.feature-card:nth-child(3){flex:0 0 min(82vw,330px)}
+  .feature-img{height:auto;aspect-ratio:1.06/1}
+  .feature-info{gap:8px;align-items:flex-start}
+  .feature-info h3{font-size:23px;overflow-wrap:anywhere}
+  .feature-info .price{flex:0 0 auto}
+  .pizza-bottom-cta{gap:14px}
+  .pizza-bottom-cta .secondary-btn{width:100%}
+  .home-final-cta{min-height:0;padding:54px 18px}
+  .home-final-cta .primary-btn{width:100%;margin-top:23px}
+  .process-v2{grid-template-columns:1fr;gap:16px;margin-top:58px}
+  .process-v2 .display{font-size:clamp(40px,11vw,48px)}
+  .process-v2 .process-video{width:100%;max-width:none;max-height:none;aspect-ratio:16/9}
+  .cat-feature-photo{height:auto;min-height:0;aspect-ratio:16/10}
+  .cat-feature-copy{padding:25px 19px 27px}
+  .cat-feature-copy .primary-btn{width:100%}
+  .facts-v2{gap:10px}
+  .facts-v2 .fact b{font-size:clamp(27px,8vw,37px)}
+  .facts-v2 .fact span{font-size:9px;line-height:1.4}
+  .cat-bottom{align-items:flex-start}
+  .cat-bottom .text-link{max-width:100%}
+  .pz-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+  .pz,.pz:nth-child(n+4){min-width:0}
+  .pz-photo,.pz:nth-child(n+4) .pz-photo{aspect-ratio:1/1;min-height:0;height:auto}
+  .pz-body{min-width:0;padding:12px 0 15px}
+  .pz-top{align-items:flex-start;gap:5px;flex-wrap:wrap}
+  .pz h3{font-size:clamp(17px,5vw,21px);overflow-wrap:anywhere}
+  .pz p{font-size:11px;line-height:1.55}
+  .pz .price{font-size:11px}
+  .pz-note .primary-btn{width:100%}
+  .contact-panel .primary-btn{width:100%}
+  .footer-inner{padding-bottom:10px}
+}
+
+@media(max-width:380px){
+  .nav-links,.nav-links.open{padding-left:22px;padding-right:22px}
+  .nav-links>.nav-link{font-size:28px;min-height:53px}
+  .hero-v2 .display{font-size:46px}
+  .offer-fact strong{font-size:24px}
+  .offer-fact span{font-size:8px}
+  .feature-card,.feature-card:nth-child(2),.feature-card:nth-child(3){flex-basis:86vw}
+  .pz-grid{grid-template-columns:1fr}
+}
+
+/* Mantener animación fluida sin forzar movimientos en dispositivos táctiles. */
+@media(hover:none){
+  .step-card:hover .step-image img,.feature-card:hover .feature-img img,.home-media-main:hover img{transform:none}
+  .primary-btn:hover,.secondary-btn:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .nav-links>.nav-link,.menu-toggle:before,.menu-toggle:after{transition:none!important}
+}
+
+
+
+/* ===== Ajuste integral final: controles, medios y móvil ===== */
+:root{--paper:#fff;--cream:#FED995;--muted:rgba(255,255,255,.66)}
+body{color:#fff}
+.lead,.section-intro,.pz p,.feature-info p,.fact span,.offer-howto p,.cat-feature-copy p,.home-final-copy{color:rgba(255,255,255,.76)}
+
+/* CTA y enlaces: una misma familia visual, sin deformar textos largos. */
+a.primary-btn,button.primary-btn,a.secondary-btn,button.secondary-btn{
+  box-sizing:border-box;display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:54px;max-width:100%;min-width:0;padding:12px 14px 12px 18px;
+  border-radius:0;font-family:var(--sans);font-size:11px;font-weight:800;line-height:1.35;
+  letter-spacing:.085em;text-align:left;text-decoration:none;text-transform:uppercase;
+  white-space:normal;overflow-wrap:anywhere;cursor:pointer;
+}
+a.primary-btn,button.primary-btn{background:var(--red);border:1px solid var(--red);color:#111;transition:background .22s,border-color .22s,color .22s,transform .22s}
+a.secondary-btn,button.secondary-btn{background:transparent;border:1px solid rgba(254,217,149,.65);color:var(--cream);transition:background .22s,border-color .22s,color .22s,transform .22s}
+a.primary-btn:after,button.primary-btn:after,a.secondary-btn:after,button.secondary-btn:after{
+  content:'↗';display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;
+  border-left:1px solid currentColor;font-size:16px;line-height:1;transition:transform .22s;
+}
+a.primary-btn:hover,button.primary-btn:hover{background:var(--cream);border-color:var(--cream);color:#111;transform:translateY(-2px)}
+a.secondary-btn:hover,button.secondary-btn:hover{background:var(--cream);border-color:var(--cream);color:#111;transform:translateY(-2px)}
+a.primary-btn:hover:after,button.primary-btn:hover:after,a.secondary-btn:hover:after,button.secondary-btn:hover:after{transform:translate(2px,-2px)}
+a.primary-btn:focus-visible,button.primary-btn:focus-visible,a.secondary-btn:focus-visible,button.secondary-btn:focus-visible,.text-link:focus-visible,.line-button:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+.text-link,button.text-link{
+  appearance:none;display:inline-flex;align-items:center;justify-content:flex-start;gap:9px;
+  min-height:38px;max-width:100%;padding:5px 0;border:0;border-bottom:1px solid rgba(254,217,149,.55);
+  border-radius:0;background:transparent;color:var(--cream);font:700 11px/1.4 var(--sans);
+  letter-spacing:.075em;text-align:left;text-decoration:none;text-transform:uppercase;white-space:normal;cursor:pointer;
+  transition:color .2s,border-color .2s,gap .2s;
+}
+.text-link:hover,button.text-link:hover{color:#fff;border-color:#fff;gap:13px}
+.line-button{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:52px;padding:0 0 7px;border:0;border-bottom:1px solid var(--cream);background:transparent;color:var(--cream);font:800 11px/1.35 var(--sans);letter-spacing:.09em;text-align:left;text-transform:uppercase;cursor:pointer;transition:gap .2s,color .2s}
+.line-button span{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border:1px solid rgba(254,217,149,.6);font-size:16px}
+.line-button:hover{gap:25px;color:#fff}
+
+/* Marcos consistentes: el contenido llena el área y no deja paneles grises vacíos. */
+.step-image,.home-media-main,.home-media-side,.feature-img,.pz-photo,.cat-feature-photo,.process-video,.om,.gal-item,.vcard{
+  position:relative;overflow:hidden;border:1px solid rgba(254,217,149,.22);border-radius:2px;background:#101010;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025);
+}
+.step-image img,.feature-img img,.pz-photo img,.gal-item img,.om img,.om video,.vcard img{display:block;width:100%;height:100%;object-fit:cover}
+.step-image{aspect-ratio:4/3;height:auto}
+.step-image img{transition:transform .75s cubic-bezier(.2,.7,.2,1)}
+.step-card:hover .step-image img{transform:scale(1.025)}
+.feature-img{height:auto;aspect-ratio:4/3}
+.feature-img img{height:100%;object-fit:cover}
+.pz-photo{aspect-ratio:1/1}
+.pz-photo img{height:100%;object-fit:cover}
+.image-unavailable{display:none!important}
+.photo-fallback{display:none!important}
+
+/* Galería de inicio: dos fotografías de igual altura, con texto integrado en la imagen derecha. */
+.home-media-grid{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(260px,.72fr);gap:16px;align-items:stretch}
+.home-media-main{display:block;position:relative;width:100%;height:auto;min-height:0;aspect-ratio:16/10;padding:0;background:#090909;text-align:left;cursor:pointer}
+.home-media-main img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.home-media-main:hover img{transform:scale(1.025)}
+.home-media-side{isolation:isolate;display:flex;position:relative;min-width:0;min-height:0;height:100%;aspect-ratio:auto;align-items:flex-end;background:#101010}
+.home-media-side>img{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center 44%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.home-media-side:hover>img{transform:scale(1.025)}
+.media-side-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.03) 16%,rgba(0,0,0,.28) 48%,rgba(0,0,0,.88) 100%)}
+.media-side-copy{position:relative;width:100%;padding:26px 22px 24px}
+.media-side-copy .eyebrow{margin:0 0 10px;color:var(--cream)}
+.media-side-copy h3{max-width:340px;margin:0 0 10px;color:#fff;font:400 clamp(26px,3vw,36px)/1.04 var(--serif);letter-spacing:-.035em}
+.media-side-copy>p:not(.eyebrow){max-width:350px;margin:0 0 14px;color:rgba(255,255,255,.82);font-size:12px;line-height:1.65}
+.home-media-grid.side-image-missing{grid-template-columns:1fr}
+.home-media-grid.side-image-missing .home-media-side{display:none}
+.play-mark{width:62px;height:62px;border:1px solid var(--cream);background:rgba(8,8,8,.25);color:var(--cream);backdrop-filter:blur(2px)}
+.media-label{left:20px;bottom:18px;font-size:10px;letter-spacing:.15em}
+
+/* El video original es vertical (478 x 850): se muestra completo y a escala contenida en escritorio. */
+.process-v2{grid-template-columns:minmax(0,1fr) 285px;gap:clamp(28px,5vw,64px);align-items:center}
+.process-v2 .process-video{width:min(100%,242px);height:auto;aspect-ratio:478/850;max-height:430px;justify-self:center;align-self:center;border:1px solid rgba(254,217,149,.24);border-radius:2px;background:#080808 url(video-6-proceso-poster.webp) center/contain no-repeat;overflow:hidden}
+.process-v2 .process-video video{display:block;width:100%;height:100%;object-fit:contain;background:#080808}
+.cat-feature-photo video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%}
+
+/* Tarjetas, información y botones conservan proporciones en escritorio. */
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero-actions>a,.hero-actions>button{flex:0 1 auto}
+.cat-feature-copy .primary-btn{max-width:100%}
+.pizza-bottom-cta{display:flex;align-items:center;justify-content:space-between;gap:22px}
+.home-final-cta{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.home-final-cta>div{min-width:0}
+.home-final-cta .secondary-btn{flex:0 0 auto}
+
+/* Aparición progresiva al bajar; el retardo ahora sí usa el valor escalonado calculado por JS. */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.photo-reveal{clip-path:inset(5% 0 5% 0);transition:clip-path .85s cubic-bezier(.2,.7,.2,1)}
+.photo-reveal.in{clip-path:inset(0)}
+.photo-reveal img,.photo-reveal video{transform:scale(1.035);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.photo-reveal.in img,.photo-reveal.in video{transform:scale(1)}
+@media(prefers-reduced-motion:reduce){.reveal,.photo-reveal,.photo-reveal img,.photo-reveal video{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
+
+/* Navegación móvil: menú de pantalla completa, botones de texto alineados y tacto cómodo. */
+@media(max-width:960px){
+  .nav-wrap{width:calc(100% - 36px);height:68px;gap:14px}
+  .brand{min-width:0;flex:0 1 auto}
+  .brand img{width:118px;max-width:34vw;max-height:52px}
+  .menu-toggle{display:grid;place-items:center;position:relative;z-index:1000;flex:0 0 46px;width:46px;height:46px;margin-left:auto;padding:0;border:1px solid rgba(254,217,149,.55);border-radius:50%;background:transparent;color:transparent;font-size:0;line-height:0}
+  .menu-toggle:before,.menu-toggle:after{content:'';position:absolute;width:19px;height:1.5px;background:var(--cream);transition:transform .25s ease}
+  .menu-toggle:before{transform:translateY(-4px)}.menu-toggle:after{transform:translateY(4px)}
+  .menu-toggle[aria-expanded=true]:before{transform:rotate(45deg)}.menu-toggle[aria-expanded=true]:after{transform:rotate(-45deg)}
+  .nav-links,.nav-links.open{position:fixed;inset:0;top:0;bottom:auto;height:100vh;height:100dvh;min-height:100vh;box-sizing:border-box;z-index:999;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:0;padding:calc(78px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));background:#11100f;border:0;opacity:0;visibility:hidden;pointer-events:none;overflow-y:auto;transition:opacity .28s ease,visibility .28s ease}
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto}
+  .nav-links>.nav-link{appearance:none;display:flex;align-items:center;justify-content:flex-start;gap:13px;width:100%;min-width:0;min-height:58px;height:auto;margin:0;padding:11px 0;border:0;border-bottom:1px solid rgba(255,255,255,.13);border-radius:0;background:transparent;box-shadow:none;color:rgba(255,255,255,.76);font:400 clamp(29px,7.6vw,38px)/1.1 var(--serif);letter-spacing:-.025em;text-align:left;text-transform:none;white-space:normal;opacity:0;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease,color .2s ease}
+  .nav-links>.nav-link.active{color:var(--cream)}
+  .nav-links>.nav-link.active:before{content:'';display:block;flex:0 0 19px;width:19px;height:1px;margin:0;background:var(--cream);border-radius:0}
+  .nav-links>.nav-link:after{display:none}
+  .nav-links.open>.nav-link{opacity:1;transform:none}
+  .nav-links.open>.nav-link:nth-child(1){transition-delay:.04s}.nav-links.open>.nav-link:nth-child(2){transition-delay:.08s}.nav-links.open>.nav-link:nth-child(3){transition-delay:.12s}.nav-links.open>.nav-link:nth-child(4){transition-delay:.16s}.nav-links.open>.nav-link:nth-child(5){transition-delay:.20s}.nav-links.open>.nav-link:nth-child(6){transition-delay:.24s}
+  .menu-foot{display:block;margin-top:25px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.64);font:12px/1.9 var(--sans);letter-spacing:.04em}
+  .nav-actions{display:none!important}
+  body.menu-open{overflow:hidden}
+}
+
+@media(max-width:700px){
+  .hero-v2{width:calc(100% - 36px);min-height:0;display:flex;flex-direction:column;align-items:stretch;padding:30px 0 36px;gap:22px}
+  .hero-v2 .hero-copy{padding:0}
+  .hero-v2 .display{max-width:100%;font-size:clamp(45px,12.5vw,62px);line-height:.98;letter-spacing:-.045em}
+  .hero-v2 .lead{max-width:100%;margin:16px 0 21px;font-size:14px;line-height:1.7}
+  .hero-v2 .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  .hero-v2 .hero-actions>a,.hero-v2 .hero-actions>button{width:100%;min-width:0;min-height:54px}
+  .hero-visual-v2{width:100%;height:auto;max-height:none;aspect-ratio:4/4.15;margin:0}
+  .hero-visual-v2 .hero-photo{inset:0 8px 10px 0;border-radius:45% 45% 2px 2px;transform:none}
+  .hero-visual-v2 .hero-photo video{object-fit:cover}
+  .hero-visual-v2 .hero-stamp{right:0;top:4%;width:78px;height:78px;font-size:11px}
+  .hero-image-caption{right:8px;bottom:0;max-width:calc(100% - 20px);padding:9px 11px;font-size:9px}
+  .service-ribbon{width:calc(100% - 36px);grid-template-columns:1fr}
+  .service-ribbon>div,.service-ribbon>div:first-child{min-height:48px;padding:12px 0;border-right:0;border-bottom:1px solid var(--line);font-size:17px}
+  .service-ribbon>div:last-child{border-bottom:0}
+  .section-pad,.featured,.story-band,.contact-band,.cat-page,.pizzas-page,.oven-page,.gal-page{width:calc(100% - 36px);padding-top:62px;padding-bottom:62px}
+  .home-section-heading{display:block;margin-bottom:24px}
+  .home-section-heading .section-title{font-size:clamp(39px,10.8vw,52px);line-height:.98}
+  .section-intro{max-width:100%;margin-top:14px;font-size:13px;line-height:1.7}
+  .steps-grid{grid-template-columns:1fr;gap:24px}
+  .step-card{display:grid;grid-template-columns:minmax(112px,.84fr) minmax(0,1fr);column-gap:16px;align-items:center}
+  .step-image{grid-row:1 / span 3;grid-column:1;aspect-ratio:1/1;height:auto;min-height:0}
+  .step-meta{grid-column:2;grid-row:1;margin:0 0 5px}
+  .step-card h3{grid-column:2;grid-row:2;margin:0 0 7px;font-size:24px;line-height:1.05}
+  .step-card p{grid-column:2;grid-row:3;margin:0;font-size:12px;line-height:1.55}
+  .steps-action{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:25px;padding-top:16px}
+  .steps-action>span{font-size:12px;line-height:1.55}
+  .event-photo-band{min-height:420px;margin-top:0;background-position:center center}
+  .event-photo-content{width:calc(100% - 36px);padding:48px 0}
+  .event-photo-content h2{max-width:440px;font-size:clamp(37px,10.5vw,49px);line-height:1.02}
+  .event-photo-content p:not(.eyebrow){max-width:420px;font-size:13px;line-height:1.7}
+  .home-offer{grid-template-columns:1fr;gap:25px;padding:54px 18px}
+  .offer-copy{grid-row:auto}.offer-copy .display{font-size:clamp(40px,11vw,50px)}
+  .offer-facts{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+  .offer-fact{min-width:0;padding:19px 7px 17px 0}
+  .offer-fact+.offer-fact{padding-left:9px}
+  .offer-fact strong{font-size:clamp(23px,7.3vw,31px);white-space:normal}
+  .offer-fact span{font-size:9px;line-height:1.4}
+  .offer-howto{grid-column:auto;margin-top:0}
+  .home-media-grid{grid-template-columns:1fr;gap:12px}
+  .home-media-main{width:100%;aspect-ratio:16/10;max-height:none}
+  .home-media-side{min-height:0;height:auto;aspect-ratio:4/3}
+  .media-side-copy{padding:19px 17px 18px}
+  .media-side-copy h3{font-size:clamp(25px,7.2vw,31px)}
+  .media-side-copy>p:not(.eyebrow){font-size:12px;max-width:100%}
+  .media-side-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 10%,rgba(0,0,0,.22) 42%,rgba(0,0,0,.9) 100%)}
+  .featured-grid{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;gap:13px;margin:0;padding:0 0 8px;scroll-padding-inline:0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .featured-grid::-webkit-scrollbar{display:none}
+  .feature-card,.feature-card:nth-child(2),.feature-card:nth-child(3){display:block;flex:0 0 min(82vw,330px);scroll-snap-align:start}
+  .feature-img{height:auto;aspect-ratio:1.08/1}
+  .feature-info{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:13px 0 5px;border:0}
+  .feature-info h3{font-size:24px;overflow-wrap:anywhere}
+  .feature-info p{font-size:11px}
+  .price{flex:0 0 auto;font-size:13px}
+  .pizza-bottom-cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+  .pizza-bottom-cta .secondary-btn{width:100%}
+  .home-final-cta{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:52px 18px}
+  .home-final-cta h2{font-size:clamp(41px,11vw,51px)}
+  .home-final-cta .secondary-btn{width:100%}
+  .cat-page-v2{padding-top:52px}
+  .cat-page-v2 .page-intro{display:block;margin-bottom:27px}
+  .cat-page-v2 .page-intro .display{font-size:clamp(51px,14vw,67px)}
+  .cat-page-v2 .page-intro .lead{margin-top:14px}
+  .cat-feature{grid-template-columns:1fr;min-height:0}
+  .cat-feature-photo{width:100%;height:auto;min-height:0;aspect-ratio:4/3}
+  .cat-feature-copy{padding:24px 18px 25px}
+  .cat-feature-copy h2{font-size:clamp(34px,9.5vw,42px)}
+  .cat-feature-copy p{font-size:13px}
+  .cat-feature-copy .primary-btn{width:100%}
+  .facts-v2{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:28px}
+  .facts-v2 .fact{min-width:0;padding-top:13px}
+  .facts-v2 .fact b{font-size:clamp(25px,7.6vw,34px)}
+  .facts-v2 .fact span{font-size:9px;line-height:1.4}
+  .process-v2{grid-template-columns:1fr;gap:17px;margin-top:52px;padding-top:34px}
+  .process-v2>div:first-child{text-align:left}
+  .process-v2 .display{font-size:clamp(41px,11vw,50px);margin:8px 0 13px}
+  .process-v2 .process-video{width:min(67vw,230px);max-width:none;max-height:410px;aspect-ratio:478/850;justify-self:center}
+  .process-v2 .process-video video{object-fit:contain}
+  .cat-bottom{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:32px}
+  .cat-bottom p{font-size:19px;line-height:1.35}
+  .pz-grid{display:grid;grid-template-columns:1fr;gap:13px}
+  .pz,.pz:nth-child(n+4){display:grid;grid-template-columns:minmax(120px,.82fr) minmax(0,1.18fr);align-items:stretch;min-width:0;border:1px solid rgba(254,217,149,.16);background:#151515}
+  .pz-photo,.pz:nth-child(n+4) .pz-photo{height:100%;min-height:0;aspect-ratio:1/1.12;border:0;border-radius:0}
+  .pz-body{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:13px 13px 14px}
+  .pz-top{display:flex;flex-wrap:wrap;align-items:flex-start;gap:5px}
+  .pz h3{font-size:clamp(18px,5vw,22px);line-height:1.08;overflow-wrap:anywhere}
+  .pz p{margin-top:8px;font-size:11px;line-height:1.52;overflow-wrap:anywhere}
+  .pz .price{font-size:11px}
+  .pz-note{display:flex;flex-direction:column;align-items:stretch;gap:17px;margin-top:28px;padding:25px 0}
+  .pz-note p{font-size:20px;line-height:1.35}
+  .pz-note .primary-btn{width:100%}
+  .oven-page .story-layout{display:flex;flex-direction:column;gap:24px}
+  .oven-page .story-photo,.oven-page .story-art{width:100%;height:auto;aspect-ratio:4/3}
+  .oven-panel{aspect-ratio:1/1;margin-top:0}
+  .oven-media{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:34px}
+  .om{aspect-ratio:3/4}
+  .vrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -18px;padding:0 18px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .vrail::-webkit-scrollbar{display:none}
+  .vcard{flex:0 0 68%;scroll-snap-align:start}
+  .contact-grid{display:flex;flex-direction:column;gap:23px;margin-top:25px}
+  .contact-panel{width:100%;padding:0;border:0;background:none}
+  .contact-panel .primary-btn{width:100%}
+  .site-footer{padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+}
+
+@media(max-width:380px){
+  .nav-links,.nav-links.open{padding-left:22px;padding-right:22px}
+  .nav-links>.nav-link{font-size:28px;min-height:54px}
+  .hero-v2 .display{font-size:45px}
+  .step-card{grid-template-columns:minmax(104px,.8fr) minmax(0,1.2fr);column-gap:12px}
+  .step-card h3{font-size:21px}
+  .step-card p{font-size:11px}
+  .offer-fact strong{font-size:23px}
+  .offer-fact span{font-size:8px}
+  .feature-card,.feature-card:nth-child(2),.feature-card:nth-child(3){flex-basis:86vw}
+  .pz,.pz:nth-child(n+4){grid-template-columns:minmax(108px,.78fr) minmax(0,1.22fr)}
+  .pz-body{padding:11px}
+  .pz h3{font-size:18px}
+}
+@media(hover:none){.step-card:hover .step-image img,.feature-card:hover .feature-img img,.home-media-main:hover img,.home-media-side:hover>img{transform:none}.primary-btn:hover,.secondary-btn:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -585,7 +989,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cream);outline-offs
 </g>
 <metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo3ZTliYzljZC1hNWIxLTQzNzAtYTNjMy1kM2Q4NzMyNzJiOWEAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaEFbBDe/0vbtIwzF9NAolWAAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDowNDJjOWI3Yy00MGQyLTRkYTEtYjVhZi1hYWRhZjY2ZjcwMDFscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNooodQW1Hp5BQO6IuoOFcP6AAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggvWupMDpn3gz8HuQ2SS0bqmLB50KA2vFJX5ZBdHcqaNmkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaDQ8JOv+M5ZhYJKOLdS2sXEAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIPNnjZDbALNVRIjCD6zbHYG1j/dEZ+WADqcPGgkpsUSaZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GUQyZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjdlOWJjOWNkLWE1YjEtNDM3MC1hM2MzLWQzZDg3MzI3MmI5YS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmFiZjEzOGQzLTYxNTUtNGRhMi1iMzlkLTEzMWVjMTRhMzM2M3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCC9a6kwOmfeDPwe5DZJLRuqYsHnQoDa8UlflkF0dypo2aJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg1WXELaBDwkvH0qsBNT4LlF4XU4IJniigQ6K4NctEwwaiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg9HmQ117be1jBpk9mEhr1omZjCs50v51cM4UgCbkuh3x0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQAmJyjHf1Zv8fo3i4vNS+yvv0YhqwLBGzaDXf3cnBs+4OoDy+PUcHt+V+GAVjZAP++mkKhmwqvTZKHMI9b+7bUQ=</c2pa:manifest></metadata></svg>
 </svg><div class="intro-word">LINGUINE</div><div class="intro-sub">Catering</div><div class="intro-line"></div></div></div>
-<header class="site-header"><div class="nav-wrap"><a href="#inicio" class="brand" aria-label="Linguine Catering inicio"><img src="logo-linguine.png" alt="Linguine"></a><button class="menu-toggle" id="menuToggle" aria-label="Abrir navegación" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks"><button class="nav-link active" data-page="inicio">Inicio</button><button class="nav-link" data-page="catering">Catering</button><button class="nav-link" data-page="pizzas">Nuestras pizzas</button><button class="nav-link" data-page="horno">El horno</button><button class="nav-link" data-page="galeria">Galería</button><button class="nav-link" data-page="contacto">Contacto</button><div class="menu-foot">Cochabamba, Bolivia<br>+591 61598444</div></nav><div class="nav-actions"><a class="order-top" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar</a></div></div></header>
+<header class="site-header"><div class="nav-wrap"><a href="#inicio" class="brand" aria-label="Linguine Catering inicio"><img src="logo-linguine.png" alt="Linguine"></a><button class="menu-toggle" id="menuToggle" aria-label="Abrir navegación" aria-expanded="false">☰</button><nav class="nav-links" id="navLinks"><button class="nav-link active" data-page="inicio">Inicio</button><button class="nav-link" data-page="catering">Catering</button><button class="nav-link" data-page="pizzas">Nuestras pizzas</button><button class="nav-link" data-page="horno">El horno</button><button class="nav-link" data-page="galeria">Galería</button><button class="nav-link" data-page="contacto">Contacto</button><div class="menu-foot">Cochabamba, Bolivia<br>+591 61598444</div></nav></div></header>
 <main>
 <section class="page active" id="page-inicio">
  <div class="hero hero-v2">
@@ -613,42 +1017,52 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--cream);outline-offs
  <section class="home-process section-pad">
   <div class="home-section-heading"><div><p class="eyebrow">ASÍ SE VIVE LINGUINE</p><h2 class="section-title">Tu evento, con pizza<br><em>recién hecha.</em></h2></div><p class="section-intro">Llevamos el horno hasta el lugar de tu celebración y preparamos las pizzas ahí mismo.</p></div>
   <div class="steps-grid">
-   <article class="step-card"><div class="step-image"><img src="imagen-3.webp" alt="Preparación artesanal de la masa" loading="lazy"></div><div class="step-meta"><span>PREPARACIÓN</span></div><h3>Preparamos</h3><p>Preparamos cada pizza con su masa e ingredientes.</p></article>
-   <article class="step-card"><div class="step-image"><img src="imagen-1.webp" alt="Horno portátil de leña en funcionamiento" loading="lazy"></div><div class="step-meta"><span>EN TU EVENTO</span></div><h3>Llevamos el horno</h3><p>Llevamos e instalamos el horno portátil a leña en tu evento.</p></article>
-   <article class="step-card"><div class="step-image"><img src="imagen-2.webp" alt="Pizzas listas para compartir" loading="lazy"></div><div class="step-meta"><span>RECIÉN HECHAS</span></div><h3>Servimos</h3><p>Las pizzas salen del horno y se comparten recién hechas.</p></article>
+   <article class="step-card"><div class="step-image"><img src="imagen-1.webp" alt="Horno portátil de leña instalado en un evento" loading="lazy" decoding="async"></div><div class="step-meta"><span>EN TU EVENTO</span></div><h3>Llevamos el horno</h3><p>Coordinamos el servicio y llevamos el horno portátil a leña hasta el lugar de tu celebración.</p></article>
+   <article class="step-card"><div class="step-image"><img src="imagen-3.webp" alt="Preparación artesanal de la masa" loading="lazy" decoding="async"></div><div class="step-meta"><span>PREPARACIÓN</span></div><h3>Preparamos</h3><p>Preparamos las pizzas en el lugar, con su masa e ingredientes.</p></article>
+   <article class="step-card"><div class="step-image"><img src="imagen-2.webp" alt="Pizzas listas para compartir" loading="lazy" decoding="async"></div><div class="step-meta"><span>RECIÉN HECHAS</span></div><h3>Servimos</h3><p>Las pizzas salen del horno y se comparten recién hechas.</p></article>
   </div>
-  <div class="steps-action"><span>¿Tienes una fecha en mente?</span><a class="text-link" data-wa="catering" href="#" target="_blank" rel="noopener">Conversemos sobre tu evento <span aria-hidden="true">↗</span></a></div>
+  <div class="steps-action"><span>¿Quieres conocer las condiciones del servicio?</span><button class="text-link" data-go="catering" type="button">Ver detalles del catering <span aria-hidden="true">↗</span></button></div>
  </section>
  <section class="event-photo-band" aria-label="Linguine en eventos">
   <div class="event-photo-content">
    <p class="eyebrow">EL CATERING LLEGA A TU EVENTO</p>
-   <h2>Pizzas recién hechas, <em>en tu evento.</em></h2>
-   <p>Llevamos el horno portátil a leña y preparamos las pizzas en el lugar, para que tus invitados las disfruten recién hechas.</p>
-   <a class="line-button" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar por mi evento <span aria-hidden="true">↗</span></a>
+   <h2>La preparación también forma parte <em>del momento.</em></h2>
+   <p>El horno, la masa y las pizzas recién hechas acompañan el encuentro mientras compartes con tus invitados.</p>
+   <button class="line-button" data-go="catering" type="button">Conoce el servicio <span aria-hidden="true">↗</span></button>
   </div>
   <span class="event-photo-caption">Linguine Catering · Cochabamba</span>
  </section>
  <section class="home-offer">
-  <div class="offer-copy"><p class="eyebrow">INFORMACIÓN DEL SERVICIO</p><h2 class="display">Lo esencial<br><em>para organizarlo.</em></h2><p class="lead">Cada pizza cuesta Bs 75, rinde 8 porciones y el pedido mínimo es de 10 pizzas.</p><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar fecha y disponibilidad</a></div>
+  <div class="offer-copy"><p class="eyebrow">INFORMACIÓN DEL SERVICIO</p><h2 class="display">Lo esencial<br><em>para organizarlo.</em></h2><p class="lead">Cada pizza cuesta Bs 75, rinde 8 porciones y el pedido mínimo es de 10 pizzas.</p><button class="text-link offer-details-link" data-go="catering" type="button">Ver condiciones del servicio <span aria-hidden="true">↗</span></button></div>
   <div class="offer-facts"><div class="offer-fact"><strong>Bs 75</strong><span>por pizza</span></div><div class="offer-fact"><strong>8</strong><span>porciones por pizza</span></div><div class="offer-fact"><strong>10</strong><span>pizzas · pedido mínimo</span></div></div>
   <div class="offer-howto"><span class="offer-howto-rule" aria-hidden="true"></span><p><strong>Para consultar:</strong> cuéntanos la fecha, el lugar y cuántas personas asistirán aproximadamente.</p></div>
  </section>
  <section class="home-gallery section-pad">
   <div class="home-section-heading"><div><p class="eyebrow">MOMENTOS LINGUINE</p><h2 class="section-title">Del horno<br><em>a la mesa.</em></h2></div><p class="section-intro">Mira cómo se preparan y se sirven las pizzas durante el evento.</p></div>
-  <div class="home-media-grid"><button class="home-media-main" data-open-video="video-6-proceso.mp4" data-poster="video-6-proceso-poster.webp" aria-label="Reproducir De la masa a la mesa"><img src="video-6-proceso-poster.webp" alt="De la masa a la mesa" loading="lazy"><span class="play-mark">▶</span><span class="media-label">DE LA MASA A LA MESA</span></button><div class="home-media-side"><img src="imagen-4.webp" alt="Pizzas preparadas para el evento" loading="lazy"><div><p class="eyebrow">HECHAS EN EL LUGAR</p><p>El horno encendido, la preparación y las pizzas listas para compartir.</p><button class="text-link" data-go="galeria">Ver galería completa ↗</button></div></div></div>
+  <div class="home-media-grid">
+   <button class="home-media-main" data-open-video="video-6-proceso.mp4" data-poster="video-6-proceso-poster.webp" aria-label="Reproducir De la masa a la mesa">
+    <img src="video-6-proceso-poster.webp" alt="Preparación de la masa de pizza" loading="lazy" decoding="async">
+    <span class="play-mark" aria-hidden="true">▶</span><span class="media-label">DE LA MASA A LA MESA</span>
+   </button>
+   <article class="home-media-side">
+    <img src="video-1-servicio-poster.webp" alt="Preparación de pizzas durante un evento" loading="lazy" decoding="async" onerror="this.closest('.home-media-grid')?.classList.add('side-image-missing');">
+    <div class="media-side-shade" aria-hidden="true"></div>
+    <div class="media-side-copy"><p class="eyebrow">EN EL EVENTO</p><h3>Preparadas en el mismo lugar.</h3><p>El horno encendido y las pizzas recién hechas, listas para compartir.</p><button class="text-link" data-go="galeria" type="button">Ver la galería <span aria-hidden="true">↗</span></button></div>
+   </article>
+  </div>
  </section>
  <section class="featured section-pad"><div class="section-head"><div><p class="eyebrow">PARA COMPARTIR</p><h2 class="section-title">Nuestras pizzas</h2></div><button class="text-link" data-go="pizzas">Ver sabores y detalles ↗</button></div><div class="featured-grid" id="featuredGrid"></div><div class="pizza-bottom-cta"><span>¿Quieres conocer todos los sabores?</span><button class="secondary-btn" data-go="pizzas">Explorar las pizzas</button></div></section>
- <section class="home-final-cta"><div><p class="eyebrow">¿ESTÁS ORGANIZANDO UN EVENTO?</p><h2>Hablemos de tu<br><em>fecha.</em></h2><p class="home-final-copy">Cuéntanos dónde será y para cuántas personas. Te orientamos sobre la disponibilidad.</p></div><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a></section>
+ <section class="home-final-cta"><div><p class="eyebrow">¿ESTÁS ORGANIZANDO UN EVENTO?</p><h2>Hablemos de tu<br><em>fecha.</em></h2><p class="home-final-copy">Cuéntanos dónde será y para cuántas personas. Te orientamos sobre la disponibilidad.</p><img class="oven-mark" src="icono-horno.png" alt="Horno Linguine" loading="lazy" decoding="async"></div><button class="secondary-btn" data-go="contacto" type="button">Ver contacto</button></section>
 </section>
-<section class="page" id="page-catering"><div class="cat-page cat-page-v2"><div class="page-intro"><div><p class="eyebrow">EL SERVICIO</p><h1 class="display">Catering de<br><em>pizzas.</em></h1></div><p class="lead">Llevamos nuestro horno portátil a leña hasta tu evento y preparamos las pizzas en el lugar. Una propuesta para compartir recién hecha con tus invitados.</p></div><div class="cat-feature"><div class="cat-feature-photo"><video muted loop playsinline preload="none" poster="video-4-evento-poster.webp" data-src="video-4-evento.mp4" aria-label="Servicio de Linguine durante un evento"></video></div><div class="cat-feature-copy"><span class="cat-index">LINGUINE CATERING</span><h2>El horno llega.<br><em>La experiencia empieza.</em></h2><p>Coordinamos el servicio para tu celebración, llevamos el horno portátil y preparamos las pizzas en el lugar.</p><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a></div></div><div class="facts facts-v2"><div class="fact"><b>Bs 75</b><span>por pizza</span></div><div class="fact"><b>8</b><span>porciones por pizza</span></div><div class="fact"><b>10</b><span>pizzas · pedido mínimo</span></div></div><div class="process process-v2"><div><p class="eyebrow">EL PROCESO</p><h2 class="display">De la masa<br><em>a la mesa.</em></h2><p class="lead">Mira parte de la preparación artesanal que forma parte de la experiencia.</p></div><div class="process-video"><video id="procVid" muted loop playsinline controls preload="metadata" poster="video-6-proceso-poster.webp" data-src="video-6-proceso.mp4" aria-label="Preparación de una pizza, de la masa a la mesa"></video></div></div><div class="cat-bottom"><p>Cuéntanos la fecha, el lugar y los detalles de tu evento.</p><a class="text-link" data-wa="catering" href="#" target="_blank" rel="noopener">Solicitar información por WhatsApp ↗</a></div></div></section>
+<section class="page" id="page-catering"><div class="cat-page cat-page-v2"><div class="page-intro"><div><p class="eyebrow">EL SERVICIO</p><h1 class="display">Catering de<br><em>pizzas.</em></h1></div><p class="lead">Llevamos nuestro horno portátil a leña hasta tu evento y preparamos las pizzas en el lugar. Una propuesta para compartir recién hecha con tus invitados.</p></div><div class="cat-feature"><div class="cat-feature-photo"><video muted loop playsinline preload="none" poster="video-4-evento-poster.webp" data-src="video-4-evento.mp4" aria-label="Servicio de Linguine durante un evento"></video></div><div class="cat-feature-copy"><span class="cat-index">LINGUINE CATERING</span><h2>El horno llega.<br><em>La experiencia empieza.</em></h2><p>Coordinamos el servicio para tu celebración, llevamos el horno portátil y preparamos las pizzas en el lugar.</p><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a></div></div><div class="facts facts-v2"><div class="fact"><b>Bs 75</b><span>por pizza</span></div><div class="fact"><b>8</b><span>porciones por pizza</span></div><div class="fact"><b>10</b><span>pizzas · pedido mínimo</span></div></div><div class="process process-v2"><div><p class="eyebrow">EL PROCESO</p><h2 class="display">De la masa<br><em>a la mesa.</em></h2><p class="lead">Mira parte de la preparación artesanal que forma parte de la experiencia.</p></div><div class="process-video"><video id="procVid" muted loop playsinline controls preload="metadata" poster="video-6-proceso-poster.webp" data-src="video-6-proceso.mp4" aria-label="Preparación de una pizza, de la masa a la mesa"></video></div></div><div class="cat-bottom"><p>Cuéntanos la fecha, el lugar y los detalles de tu evento.</p><button class="text-link" data-go="contacto" type="button">Ver datos de contacto <span aria-hidden="true">↗</span></button></div></div></section>
 <section class="page" id="page-pizzas"><div class="pizzas-page"><div class="page-intro"><h1 class="display">Nuestras<br><em>pizzas.</em></h1><p class="lead">Sabores artesanales preparados para compartir. Todas a Bs 75, de 8 porciones; pedido mínimo de 10 pizzas.</p></div><div class="pz-grid" id="pizzaGrid"></div><div class="pz-note"><p>¿Tienes un gusto distinto? También las armamos a tu medida: cuéntanos qué prefieres y lo vemos.</p><a class="primary-btn" data-wa="pizzas" href="#" target="_blank" rel="noopener">Consultar por las pizzas</a></div></div></section>
-<section class="page" id="page-horno"><div class="oven-page"><div class="story-layout"><div class="story-text"><h1 class="display">El horno</h1><p class="lead">El horno portátil a leña es parte de la experiencia: lo llevamos al evento y preparamos las pizzas en el lugar.</p><div class="oven-note"><span class="eyebrow">PARA COTIZAR TU EVENTO</span><p>Escríbenos para consultar las condiciones del servicio y los detalles del horno y la leña.</p><a class="text-link" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar por el servicio ↗</a></div></div><div class="oven-panel"><img src="horno.svg" alt="Horno de Linguine"></div></div><div class="oven-media"><figure class="om"><video muted loop playsinline preload="none" poster="video-12-horno-poster.webp" data-src="video-12-horno.mp4" aria-label="Horno encendido junto a la leña"></video></figure><figure class="om"><img src="imagen-6.webp" alt="Preparando pizzas junto al horno" loading="lazy"></figure></div></div></section>
+<section class="page" id="page-horno"><div class="oven-page"><div class="story-layout"><div class="story-text"><h1 class="display">El horno</h1><p class="lead">El horno portátil a leña es parte de la experiencia: lo llevamos al evento y preparamos las pizzas en el lugar.</p><div class="oven-note"><span class="eyebrow">PARA COTIZAR TU EVENTO</span><p>Escríbenos para consultar las condiciones del servicio y los detalles del horno y la leña.</p><button class="text-link" data-go="catering" type="button">Ver servicio de catering <span aria-hidden="true">↗</span></button></div></div><div class="oven-panel"><img src="horno.svg" alt="Horno de Linguine"></div></div><div class="oven-media"><figure class="om"><video muted loop playsinline preload="none" poster="video-12-horno-poster.webp" data-src="video-12-horno.mp4" aria-label="Horno encendido junto a la leña"></video></figure><figure class="om"><img src="imagen-6.webp" alt="Preparando pizzas junto al horno" loading="lazy"></figure></div></div></section>
 <section class="page" id="page-galeria"><div class="gal-page"><div class="page-intro"><h1 class="display">Galería</h1><p class="lead">Así se vive Linguine en cada evento.</p></div><div class="oven-frame"><div class="oven-shell"><div class="oven-mouth" id="galGrid"></div></div><div class="oven-base"></div></div><div class="vrail-head"><h2 class="section-title">Videos</h2></div><div class="vrail" id="reel"></div></div></section>
 <section class="page" id="page-contacto"><video class="bg-vid" muted loop playsinline preload="none" data-src="video-12-horno.mp4" aria-hidden="true"></video><div class="contact-page"><h1 class="display">Contacto</h1><p class="lead">Cuéntanos la fecha, el lugar y cuántas personas asistirán aproximadamente. Te responderemos por WhatsApp para conversar sobre el servicio.</p><div class="contact-grid"><div class="contact-details"><div class="contact-item"><small>WhatsApp</small><strong>+591 61598444</strong></div><div class="contact-item"><small>Ubicación</small><strong>Cochabamba, Bolivia</strong></div></div><div class="contact-panel"><a class="primary-btn" data-wa="general" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a></div></div></div></section>
 </main>
-<section class="cta-band"><div><h2>+591 61598444</h2><p>Cuéntanos la fecha, el lugar y qué estás organizando. Cochabamba, Bolivia.</p></div><a class="primary-btn" data-wa="general" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a></section>
+
 <footer class="site-footer"><div class="footer-inner"><img class="footer-brand" src="logo-linguine.png" alt="Linguine"><span>© <span id="year"></span> Linguine Catering · Cochabamba, Bolivia</span></div></footer>
-<a class="wa-float" data-wa="auto" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
 <div class="lightbox" id="lightbox"><button class="lb-close" aria-label="Cerrar">×</button><div class="lb-box" id="lbBox"></div></div>
 <script>
 /* ===== CONFIGURACIÓN =====
@@ -681,7 +1095,7 @@ const reel=[
  {video:'video-5.mp4',image:'video-5-poster.webp',alt:'Terminando una pizza'},
  {video:'video-7.mp4',image:'video-7-poster.webp',alt:'Preparando una pizza'}
 ];
-function imageMarkup(src,alt){return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"/><div class="photo-fallback"><span>${alt}</span><small>${src}</small></div>`}
+function imageMarkup(src,alt){return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.parentElement.classList.add('image-unavailable')"/><div class="photo-fallback"><span>${alt}</span></div>`}
 function pizzaCard(p){return `<article class="pz"><div class="pz-photo">${imageMarkup(p.image,p.name)}</div><div class="pz-body"><div class="pz-top"><h3>${p.name}</h3><span class="price">${PRICE}</span></div><p>${p.desc}</p></div></article>`}
 function renderPizzas(){document.getElementById('pizzaGrid').innerHTML=pizzas.map(pizzaCard).join('')}
 function renderFeatured(){document.getElementById('featuredGrid').innerHTML=pizzas.slice(0,3).map(p=>`<article class="feature-card"><div class="feature-img">${imageMarkup(p.image,p.name)}</div><div class="feature-info"><div><h3>${p.name}</h3><p>8 porciones</p></div><span class="price">${PRICE}</span></div></article>`).join('')}
@@ -693,7 +1107,7 @@ function setupWhatsApp(){document.querySelectorAll('[data-wa]').forEach(a=>{a.hr
 function go(page){document.querySelectorAll('.page').forEach(el=>el.classList.toggle('active',el.id==='page-'+page));document.querySelectorAll('.nav-link').forEach(el=>el.classList.toggle('active',el.dataset.page===page));document.getElementById('navLinks').classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false');window.scrollTo({top:0,behavior:'smooth'});if(location.hash!=='#'+page)history.replaceState(null,'','#'+page)}
 const goBase=go;go=function(p){goBase(p);document.body.classList.remove('menu-open');setupWhatsApp();requestAnimationFrame(()=>document.querySelectorAll('#page-'+p+' .reveal:not(.in)').forEach(el=>{if(!revealObserver)el.classList.add('in');else revealObserver.observe(el)}))};
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
-document.getElementById('menuToggle').addEventListener('click',()=>{let n=document.getElementById('navLinks');n.classList.toggle('open');document.body.classList.toggle('menu-open',n.classList.contains('open'));document.getElementById('menuToggle').setAttribute('aria-expanded',n.classList.contains('open'))});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open')){document.getElementById('menuToggle').click()}});
+document.getElementById('menuToggle').addEventListener('click',()=>{let n=document.getElementById('navLinks');let open=n.classList.toggle('open');document.body.classList.toggle('menu-open',open);document.getElementById('menuToggle').setAttribute('aria-expanded',open);document.getElementById('menuToggle').setAttribute('aria-label',open?'Cerrar navegación':'Abrir navegación')});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open')){document.getElementById('menuToggle').click()}});
 document.getElementById('year').textContent=new Date().getFullYear();renderPizzas();renderFeatured();renderGallery();renderReel();renderStaticImages();setupWhatsApp();
 
 /* Apariciones al desplazarse: entradas cortas, escalonadas y respetuosas. */
