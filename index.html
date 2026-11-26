@@ -968,6 +968,190 @@ a.primary-btn:focus-visible,button.primary-btn:focus-visible,a.secondary-btn:foc
 }
 @media(hover:none){.step-card:hover .step-image img,.feature-card:hover .feature-img img,.home-media-main:hover img,.home-media-side:hover>img{transform:none}.primary-btn:hover,.secondary-btn:hover{transform:none}}
 
+
+
+/* ===== Ajuste limpio: fotografía protagonista, sin cajas ni líneas laterales ===== */
+:root{
+  --linguine-surface:#171614;
+}
+
+/* Las fotografías se integran directamente en la composición. */
+.step-card,
+.feature-card,
+.pz{
+  padding:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+.step-image,
+.home-media-main,
+.home-media-side,
+.feature-img,
+.pz-photo,
+.cat-feature,
+.cat-feature-photo,
+.process-v2 .process-video,
+.om,
+.gal-item,
+.vcard,
+.oven-panel,
+.contact-panel{
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+}
+.step-image,
+.feature-img,
+.pz-photo,
+.cat-feature-photo,
+.process-v2 .process-video,
+.om,
+.gal-item,
+.vcard{
+  border-radius:2px;
+}
+.home-media-side{background:#171614}
+.cat-feature{background:#171614}
+.oven-panel{background:#171614}
+.contact-panel{background:transparent !important;padding:0 !important}
+
+/* Fuera los separadores verticales y las barras pegadas a un costado. */
+.primary-btn::after,
+.order-top::after,
+.secondary-btn::after,
+a.primary-btn:after,
+button.primary-btn:after,
+a.secondary-btn:after,
+button.secondary-btn:after{
+  border-left:0 !important;
+  padding-left:0 !important;
+}
+.hero-image-caption{
+  border-left:0 !important;
+  background:transparent !important;
+  padding-left:0 !important;
+}
+.offer-howto{
+  border-left:0 !important;
+  background:transparent !important;
+  padding-left:0 !important;
+}
+.service-ribbon>div,
+.service-ribbon>div:first-child,
+.offer-fact,
+.cat-feature-photo{
+  border-right:0 !important;
+}
+.service-ribbon>div,
+.service-ribbon>div:first-child{padding-left:0;padding-right:0}
+.service-ribbon{column-gap:28px}
+.offer-facts{
+  border:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  column-gap:26px;
+}
+.offer-fact,
+.offer-fact+ .offer-fact{
+  padding:25px 0 !important;
+}
+.nav-links>.nav-link.active:before{display:none !important;content:none !important}
+
+/* Botones personalizados, sin divisores ni pequeños marcos decorativos. */
+.primary-btn,.order-top{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:52px;
+  max-width:100%;
+  padding:12px 18px;
+  border:1px solid var(--cream);
+  border-radius:2px;
+  background:var(--cream);
+  color:#11100f;
+  font-size:10px;
+  font-weight:800;
+  line-height:1.35;
+  letter-spacing:.09em;
+  text-align:left;
+  text-decoration:none;
+  white-space:normal;
+  box-shadow:none;
+  transition:background .2s,color .2s,transform .2s;
+}
+.primary-btn::after,.order-top::after,
+.secondary-btn::after{
+  content:'↗';
+  display:inline-block;
+  flex:0 0 auto;
+  width:auto;
+  height:auto;
+  color:currentColor;
+  font-size:15px;
+  line-height:1;
+  transition:transform .2s;
+}
+.primary-btn:hover,.order-top:hover{
+  background:#fff1cf;
+  border-color:#fff1cf;
+  color:#11100f;
+  transform:translateY(-1px);
+}
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:52px;
+  max-width:100%;
+  padding:12px 17px;
+  border:1px solid rgba(254,217,149,.72);
+  border-radius:2px;
+  background:transparent;
+  color:var(--cream);
+  font-size:10px;
+  font-weight:750;
+  line-height:1.35;
+  letter-spacing:.085em;
+  text-align:left;
+  white-space:normal;
+  box-shadow:none;
+  transition:background .2s,border-color .2s,color .2s,transform .2s;
+}
+.secondary-btn:hover{
+  background:rgba(254,217,149,.1);
+  border-color:var(--cream);
+  color:#fff;
+  transform:translateY(-1px);
+}
+.primary-btn:hover::after,.order-top:hover::after,.secondary-btn:hover::after{transform:translate(2px,-2px)}
+.text-link span,.line-button span{
+  border:0 !important;
+  width:auto;
+  height:auto;
+}
+
+/* Sin adornos lineales junto a etiquetas: la jerarquía la da la tipografía. */
+.hero-v2 .eyebrow:before,
+.step-meta:before,
+.offer-howto-rule,
+.hero-note-mark,
+.ribbon-mark{display:none !important}
+
+@media(max-width:700px){
+  .service-ribbon{column-gap:0}
+  .service-ribbon>div,.service-ribbon>div:first-child{padding:13px 0}
+  .offer-facts{column-gap:12px}
+  .offer-fact,.offer-fact+ .offer-fact{padding:17px 0 !important}
+  .primary-btn,.order-top,.secondary-btn{width:auto;min-height:50px;padding:11px 14px;gap:10px}
+  .home-media-side{background:#171614}
+}
+@media(prefers-reduced-motion:reduce){
+  .primary-btn,.order-top,.secondary-btn{transition:none !important}
+}
 </style>
 </head>
 <body>
@@ -1147,3 +1331,56 @@ const intro=document.getElementById('intro');document.querySelectorAll('.intro-a
 const initial=location.hash.replace('#','');if(['inicio','catering','pizzas','horno','galeria','contacto'].includes(initial))go(initial);
 </script>
 </body></html>
+
+<style>
+/* Ajuste de marcos Linguine: sustituye líneas sueltas por contenedores completos */
+:root{--linguine-frame:rgba(254,217,149,.30);--linguine-frame-bg:#151412;}
+/* Las tarjetas conservan un marco fino y visible en sus cuatro lados. */
+.step-card,.feature-card,.pz{
+  border:1px solid var(--linguine-frame) !important;
+  background:var(--linguine-frame-bg) !important;
+  overflow:hidden;
+}
+.step-image,.feature-img,.pz-photo,.cat-feature-photo,
+.process-v2 .process-video,.om,.gal-item,.vcard,.oven-panel,
+.home-media-main,.home-media-side,.cat-feature,.contact-panel{
+  border:1px solid var(--linguine-frame) !important;
+  box-shadow:none !important;
+}
+/* Etiquetas y datos que antes tenían una sola línea lateral: ahora quedan contenidos. */
+.hero-image-caption,.offer-howto{
+  border:1px solid var(--linguine-frame) !important;
+  border-left:1px solid var(--linguine-frame) !important;
+  border-right:1px solid var(--linguine-frame) !important;
+  background:#171614 !important;
+  padding:14px 16px !important;
+}
+.service-ribbon>div,.service-ribbon>div:first-child,
+.offer-fact,.offer-fact+ .offer-fact{
+  border:1px solid var(--linguine-frame) !important;
+  background:#151412;
+  padding:16px 18px !important;
+}
+.service-ribbon>div{min-width:0;}
+.offer-facts{border:0 !important;gap:12px;padding:0 !important;}
+/* No dejar separadores verticales sueltos entre elementos. */
+.service-ribbon>div,.offer-fact{border-right:1px solid var(--linguine-frame) !important;}
+/* Los botones de texto también tienen un contorno completo, no una raya inferior aislada. */
+.line-button{
+  min-height:46px;
+  padding:10px 13px !important;
+  border:1px solid rgba(254,217,149,.52) !important;
+  background:#151412 !important;
+  gap:12px;
+}
+.line-button span{border:0 !important;}
+@media(max-width:700px){
+  .service-ribbon{gap:9px !important;}
+  .service-ribbon>div,.service-ribbon>div:first-child{padding:12px 14px !important;border:1px solid var(--linguine-frame) !important;}
+  .offer-facts{grid-template-columns:1fr;gap:9px !important;}
+  .offer-fact,.offer-fact+ .offer-fact{padding:14px 15px !important;border:1px solid var(--linguine-frame) !important;}
+  .hero-image-caption,.offer-howto{padding:12px 13px !important;}
+  .step-card,.feature-card,.pz{border:1px solid var(--linguine-frame) !important;}
+  .line-button{width:100%;}
+}
+</style>
