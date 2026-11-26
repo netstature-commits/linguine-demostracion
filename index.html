@@ -1153,6 +1153,64 @@ button.secondary-btn:after{
   .primary-btn,.order-top,.secondary-btn{transition:none !important}
 }
 </style>
+<style>
+/* ===== Inicio: franjas de color y bloques simples ===== */
+.hero-price{display:flex;flex-wrap:wrap;gap:12px 30px;max-width:520px;margin:0 0 30px;padding:16px 0;border-top:1px solid rgba(254,217,149,.38);border-bottom:1px solid rgba(254,217,149,.38)}
+.hero-price div{display:flex;align-items:center;gap:10px}
+.hero-price b{font:400 clamp(32px,3.6vw,42px)/1 var(--serif);letter-spacing:-.03em;color:var(--cream)}
+.hero-price span{font-size:12px;line-height:1.35;color:rgba(255,255,255,.78)}
+.v3-wrap{width:min(1240px,calc(100% - 48px));margin:auto;padding:88px 0}
+.v3-head{max-width:620px;margin:0 0 42px}
+.v3-head h2{font:400 clamp(36px,4.6vw,58px)/1.02 var(--serif);letter-spacing:-.04em;margin:0 0 14px}
+.v3-head p{margin:0;font-size:16px;line-height:1.7;max-width:500px}
+.v3-band{background:var(--cream);color:#1d130d}
+.v3-band .v3-head p{color:#43301f}
+.v3-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.v3-step img{width:100%;aspect-ratio:5/4;object-fit:cover;background:#30231e}
+.v3-step h3{display:flex;align-items:baseline;gap:12px;font:400 clamp(24px,2.5vw,30px)/1.1 var(--serif);margin:20px 0 8px}
+.v3-step h3 span{font:700 15px var(--sans);color:#b3302a}
+.v3-step p{margin:0;font-size:14px;line-height:1.7;color:#43301f;max-width:340px}
+.v3-dark{background:var(--ink)}
+.v3-dark-alt{background:#1a1612}
+.v3-dark .v3-head p{color:rgba(255,255,255,.72)}
+.v3-pizzas{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.v3-pizza{min-width:0;background:#1d1a17;border:1px solid rgba(254,217,149,.2)}
+.v3-pizza .ph{aspect-ratio:1/1;position:relative;overflow:hidden;background:#30231e}
+.v3-pizza .ph img{width:100%;height:100%;object-fit:cover}
+.v3-pizza .tx{padding:16px 16px 20px}
+.v3-pizza h3{font:400 22px/1.1 var(--serif);margin:0 0 8px;color:var(--cream)}
+.v3-pizza p{margin:0;font-size:13px;line-height:1.55;color:rgba(255,255,255,.7)}
+.v3-video-wrap{padding-top:80px;padding-bottom:96px}
+.v3-video{position:relative;display:block;width:100%;aspect-ratio:16/8;padding:0;border:1px solid rgba(254,217,149,.25);background:#09090a;overflow:hidden;cursor:pointer}
+.v3-video img{width:100%;height:100%;object-fit:cover}
+.v3-video:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.45),transparent 55%)}
+.v3-video .play-mark{width:78px;height:78px;background:rgba(17,16,15,.55);z-index:2}
+.v3-video:hover .play-mark,.v3-video:focus-visible .play-mark{background:var(--cream);color:#111}
+.v3-cta{background:var(--red);color:#170d0b}
+.v3-cta-in{display:flex;align-items:center;justify-content:space-between;gap:40px;padding-top:70px;padding-bottom:70px}
+.v3-cta h2{font:400 clamp(34px,4.4vw,56px)/1.03 var(--serif);letter-spacing:-.04em;margin:0 0 12px}
+.v3-cta p{margin:0;font-size:16px;line-height:1.65;max-width:480px}
+.v3-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 30px;background:#11100f;color:var(--cream);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.v3-btn:hover{background:#000}
+.v3-btn:focus-visible,.v3-video:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
+@media(max-width:1000px){.v3-pizzas{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+ .v3-wrap{width:calc(100% - 40px);padding:60px 0}
+ .v3-head{margin-bottom:30px}
+ .v3-steps{grid-template-columns:1fr;gap:34px}
+ .v3-step img{aspect-ratio:16/11}
+ .v3-pizzas{grid-template-columns:repeat(2,1fr);gap:12px}
+ .v3-pizza:last-child{grid-column:1/-1}
+ .v3-pizza:last-child .ph{aspect-ratio:16/10}
+ .v3-pizza .tx{padding:13px 13px 16px}
+ .v3-pizza h3{font-size:19px}
+ .v3-video{aspect-ratio:4/3}
+ .v3-cta-in{flex-direction:column;align-items:stretch;gap:26px;padding-top:54px;padding-bottom:54px}
+ .v3-btn{width:100%}
+ .hero-price{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+ .hero-price div{flex-direction:column;align-items:flex-start;gap:5px}
+}
+</style>
 </head>
 <body>
 <div class="intro" id="intro" aria-label="Presentación de Linguine Catering"><div class="intro-inner"><svg class="intro-art" viewBox="0 0 592 322" role="img" aria-label="Horno Linguine"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592 322" role="img" aria-label="Horno de ladrillo con fuego" xmlns:c2pa="http://c2pa.org/manifest">
@@ -1180,12 +1238,15 @@ button.secondary-btn:after{
   <div class="hero-copy">
    <p class="eyebrow">LINGUINE CATERING · COCHABAMBA</p>
    <h1 class="display">Llevamos el<br>catering de pizzas<br><em>a tu evento.</em></h1>
-   <p class="lead">Llevamos el horno portátil a leña y preparamos las pizzas en el lugar, para compartirlas recién hechas con tus invitados.</p>
+   <p class="lead">Llevamos el horno portátil a leña y preparamos las pizzas en el lugar, recién hechas para tus invitados.</p>
+   <div class="hero-price" aria-label="Precio y condiciones">
+    <div><b>Bs 75</b><span>por pizza</span></div>
+    <div><b>8</b><span>porciones<br>por pizza</span></div>
+    <div><b>10</b><span>pizzas de<br>pedido mínimo</span></div>
+   </div>
    <div class="hero-actions">
     <a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a>
-    <button class="secondary-btn" data-go="catering">Así funciona el servicio</button>
    </div>
-   <div class="hero-note"><span class="hero-note-mark" aria-hidden="true"></span><span>Para eventos en <strong>Cochabamba</strong></span></div>
   </div>
   <div class="hero-visual hero-visual-v2">
    <div class="hero-photo"><video muted loop playsinline preload="none" poster="video-2-poster.webp" data-src="video-2.mp4" aria-label="Horno portátil de Linguine encendido"></video></div>
@@ -1193,52 +1254,40 @@ button.secondary-btn:after{
    <div class="hero-image-caption"><span>LINGUINE CATERING</span><span>Preparación en el lugar</span></div>
   </div>
  </div>
- <div class="service-ribbon" aria-label="Características del servicio">
-  <div><span class="ribbon-mark" aria-hidden="true"></span><span>Horno portátil a leña</span></div>
-  <div><span class="ribbon-mark" aria-hidden="true"></span><span>Pizzas preparadas en el evento</span></div>
-  <div><span class="ribbon-mark" aria-hidden="true"></span><span>Para compartir</span></div>
- </div>
- <section class="home-process section-pad">
-  <div class="home-section-heading"><div><p class="eyebrow">ASÍ SE VIVE LINGUINE</p><h2 class="section-title">Tu evento, con pizza<br><em>recién hecha.</em></h2></div><p class="section-intro">Llevamos el horno hasta el lugar de tu celebración y preparamos las pizzas ahí mismo.</p></div>
-  <div class="steps-grid">
-   <article class="step-card"><div class="step-image"><img src="imagen-1.webp" alt="Horno portátil de leña instalado en un evento" loading="lazy" decoding="async"></div><div class="step-meta"><span>EN TU EVENTO</span></div><h3>Llevamos el horno</h3><p>Coordinamos el servicio y llevamos el horno portátil a leña hasta el lugar de tu celebración.</p></article>
-   <article class="step-card"><div class="step-image"><img src="imagen-3.webp" alt="Preparación artesanal de la masa" loading="lazy" decoding="async"></div><div class="step-meta"><span>PREPARACIÓN</span></div><h3>Preparamos</h3><p>Preparamos las pizzas en el lugar, con su masa e ingredientes.</p></article>
-   <article class="step-card"><div class="step-image"><img src="imagen-2.webp" alt="Pizzas listas para compartir" loading="lazy" decoding="async"></div><div class="step-meta"><span>RECIÉN HECHAS</span></div><h3>Servimos</h3><p>Las pizzas salen del horno y se comparten recién hechas.</p></article>
+ <section class="v3-band" aria-labelledby="v3-pasos">
+  <div class="v3-wrap">
+   <div class="v3-head"><h2 id="v3-pasos">Así funciona</h2><p>Coordinamos la fecha contigo, llevamos el horno y las pizzas salen directo a la mesa.</p></div>
+   <div class="v3-steps">
+    <article class="v3-step"><img src="imagen-1.webp" alt="Horno portátil de leña instalado en un evento" loading="lazy" decoding="async"><h3><span>1</span> Llevamos el horno</h3><p>Llegamos al lugar de tu celebración con el horno portátil a leña.</p></article>
+    <article class="v3-step"><img src="imagen-3.webp" alt="Preparación artesanal de la masa" loading="lazy" decoding="async"><h3><span>2</span> Preparamos</h3><p>Armamos las pizzas ahí mismo, con su masa e ingredientes.</p></article>
+    <article class="v3-step"><img src="imagen-2.webp" alt="Pizzas listas para compartir" loading="lazy" decoding="async"><h3><span>3</span> Servimos</h3><p>Las pizzas salen del horno y se comparten recién hechas.</p></article>
+   </div>
   </div>
-  <div class="steps-action"><span>¿Quieres conocer las condiciones del servicio?</span><button class="text-link" data-go="catering" type="button">Ver detalles del catering <span aria-hidden="true">↗</span></button></div>
  </section>
- <section class="event-photo-band" aria-label="Linguine en eventos">
-  <div class="event-photo-content">
-   <p class="eyebrow">EL CATERING LLEGA A TU EVENTO</p>
-   <h2>La preparación también forma parte <em>del momento.</em></h2>
-   <p>El horno, la masa y las pizzas recién hechas acompañan el encuentro mientras compartes con tus invitados.</p>
-   <button class="line-button" data-go="catering" type="button">Conoce el servicio <span aria-hidden="true">↗</span></button>
+ <section class="v3-dark" aria-labelledby="v3-pizzas-t">
+  <div class="v3-wrap">
+   <div class="v3-head"><h2 id="v3-pizzas-t">Nuestras pizzas</h2><p>Todas a Bs 75, de 8 porciones. También las armamos a tu gusto.</p></div>
+   <div class="v3-pizzas" id="homePizzas"></div>
   </div>
-  <span class="event-photo-caption">Linguine Catering · Cochabamba</span>
  </section>
- <section class="home-offer">
-  <div class="offer-copy"><p class="eyebrow">INFORMACIÓN DEL SERVICIO</p><h2 class="display">Lo esencial<br><em>para organizarlo.</em></h2><p class="lead">Cada pizza cuesta Bs 75, rinde 8 porciones y el pedido mínimo es de 10 pizzas.</p><button class="text-link offer-details-link" data-go="catering" type="button">Ver condiciones del servicio <span aria-hidden="true">↗</span></button></div>
-  <div class="offer-facts"><div class="offer-fact"><strong>Bs 75</strong><span>por pizza</span></div><div class="offer-fact"><strong>8</strong><span>porciones por pizza</span></div><div class="offer-fact"><strong>10</strong><span>pizzas · pedido mínimo</span></div></div>
-  <div class="offer-howto"><span class="offer-howto-rule" aria-hidden="true"></span><p><strong>Para consultar:</strong> cuéntanos la fecha, el lugar y cuántas personas asistirán aproximadamente.</p></div>
- </section>
- <section class="home-gallery section-pad">
-  <div class="home-section-heading"><div><p class="eyebrow">MOMENTOS LINGUINE</p><h2 class="section-title">Del horno<br><em>a la mesa.</em></h2></div><p class="section-intro">Mira cómo se preparan y se sirven las pizzas durante el evento.</p></div>
-  <div class="home-media-grid">
-   <button class="home-media-main" data-open-video="video-6-proceso.mp4" data-poster="video-6-proceso-poster.webp" aria-label="Reproducir De la masa a la mesa">
+ <section class="v3-dark v3-dark-alt" aria-labelledby="v3-video-t">
+  <div class="v3-wrap v3-video-wrap">
+   <div class="v3-head"><h2 id="v3-video-t">De la masa a la mesa</h2><p>Mira cómo se prepara una pizza, desde la masa hasta que sale del horno.</p></div>
+   <button class="v3-video" data-open-video="video-6-proceso.mp4" data-poster="video-6-proceso-poster.webp" aria-label="Reproducir el video De la masa a la mesa">
     <img src="video-6-proceso-poster.webp" alt="Preparación de la masa de pizza" loading="lazy" decoding="async">
-    <span class="play-mark" aria-hidden="true">▶</span><span class="media-label">DE LA MASA A LA MESA</span>
+    <span class="play-mark" aria-hidden="true">▶</span>
    </button>
-   <article class="home-media-side">
-    <img src="video-1-servicio-poster.webp" alt="Preparación de pizzas durante un evento" loading="lazy" decoding="async" onerror="this.closest('.home-media-grid')?.classList.add('side-image-missing');">
-    <div class="media-side-shade" aria-hidden="true"></div>
-    <div class="media-side-copy"><p class="eyebrow">EN EL EVENTO</p><h3>Preparadas en el mismo lugar.</h3><p>El horno encendido y las pizzas recién hechas, listas para compartir.</p><button class="text-link" data-go="galeria" type="button">Ver la galería <span aria-hidden="true">↗</span></button></div>
-   </article>
   </div>
  </section>
- <section class="featured section-pad"><div class="section-head"><div><p class="eyebrow">PARA COMPARTIR</p><h2 class="section-title">Nuestras pizzas</h2></div><button class="text-link" data-go="pizzas">Ver sabores y detalles ↗</button></div><div class="featured-grid" id="featuredGrid"></div><div class="pizza-bottom-cta"><span>¿Quieres conocer todos los sabores?</span><button class="secondary-btn" data-go="pizzas">Explorar las pizzas</button></div></section>
- <section class="home-final-cta"><div><p class="eyebrow">¿ESTÁS ORGANIZANDO UN EVENTO?</p><h2>Hablemos de tu<br><em>fecha.</em></h2><p class="home-final-copy">Cuéntanos dónde será y para cuántas personas. Te orientamos sobre la disponibilidad.</p><img class="oven-mark" src="icono-horno.png" alt="Horno Linguine" loading="lazy" decoding="async"></div><button class="secondary-btn" data-go="contacto" type="button">Ver contacto</button></section>
+ <section class="v3-cta" aria-labelledby="v3-cta-t">
+  <div class="v3-wrap v3-cta-in">
+   <div><h2 id="v3-cta-t">¿Tienes una fecha en mente?</h2><p>Escríbenos el día, el lugar y cuántas personas serán, y te decimos si tenemos disponibilidad.</p></div>
+   <a class="v3-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+ </section>
 </section>
-<section class="page" id="page-catering"><div class="cat-page cat-page-v2"><div class="page-intro"><div><p class="eyebrow">EL SERVICIO</p><h1 class="display">Catering de<br><em>pizzas.</em></h1></div><p class="lead">Llevamos nuestro horno portátil a leña hasta tu evento y preparamos las pizzas en el lugar. Una propuesta para compartir recién hecha con tus invitados.</p></div><div class="cat-feature"><div class="cat-feature-photo"><video muted loop playsinline preload="none" poster="video-4-evento-poster.webp" data-src="video-4-evento.mp4" aria-label="Servicio de Linguine durante un evento"></video></div><div class="cat-feature-copy"><span class="cat-index">LINGUINE CATERING</span><h2>El horno llega.<br><em>La experiencia empieza.</em></h2><p>Coordinamos el servicio para tu celebración, llevamos el horno portátil y preparamos las pizzas en el lugar.</p><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a></div></div><div class="facts facts-v2"><div class="fact"><b>Bs 75</b><span>por pizza</span></div><div class="fact"><b>8</b><span>porciones por pizza</span></div><div class="fact"><b>10</b><span>pizzas · pedido mínimo</span></div></div><div class="process process-v2"><div><p class="eyebrow">EL PROCESO</p><h2 class="display">De la masa<br><em>a la mesa.</em></h2><p class="lead">Mira parte de la preparación artesanal que forma parte de la experiencia.</p></div><div class="process-video"><video id="procVid" muted loop playsinline controls preload="metadata" poster="video-6-proceso-poster.webp" data-src="video-6-proceso.mp4" aria-label="Preparación de una pizza, de la masa a la mesa"></video></div></div><div class="cat-bottom"><p>Cuéntanos la fecha, el lugar y los detalles de tu evento.</p><button class="text-link" data-go="contacto" type="button">Ver datos de contacto <span aria-hidden="true">↗</span></button></div></div></section>
+
+<section class="page" id="page-catering"><div class="cat-page cat-page-v2"><div class="page-intro"><div><p class="eyebrow">EL SERVICIO</p><h1 class="display">Catering de<br><em>pizzas.</em></h1></div><p class="lead">Llevamos nuestro horno portátil a leña hasta tu evento y preparamos las pizzas en el lugar.</p></div><div class="cat-feature"><div class="cat-feature-photo"><video muted loop playsinline preload="none" poster="video-4-evento-poster.webp" data-src="video-4-evento.mp4" aria-label="Servicio de Linguine durante un evento"></video></div><div class="cat-feature-copy"><span class="cat-index">LINGUINE CATERING</span><h2>Pizza hecha<br><em>en tu evento.</em></h2><p>Coordinamos la fecha, llevamos el horno portátil y preparamos las pizzas en el lugar.</p><a class="primary-btn" data-wa="catering" href="#" target="_blank" rel="noopener">Consultar disponibilidad</a></div></div><div class="facts facts-v2"><div class="fact"><b>Bs 75</b><span>por pizza</span></div><div class="fact"><b>8</b><span>porciones por pizza</span></div><div class="fact"><b>10</b><span>pizzas · pedido mínimo</span></div></div><div class="process process-v2"><div><p class="eyebrow">EL PROCESO</p><h2 class="display">De la masa<br><em>a la mesa.</em></h2><p class="lead">Así preparamos cada pizza, desde la masa.</p></div><div class="process-video"><video id="procVid" muted loop playsinline controls preload="metadata" poster="video-6-proceso-poster.webp" data-src="video-6-proceso.mp4" aria-label="Preparación de una pizza, de la masa a la mesa"></video></div></div><div class="cat-bottom"><p>Cuéntanos la fecha, el lugar y los detalles de tu evento.</p><button class="text-link" data-go="contacto" type="button">Ver datos de contacto <span aria-hidden="true">↗</span></button></div></div></section>
 <section class="page" id="page-pizzas"><div class="pizzas-page"><div class="page-intro"><h1 class="display">Nuestras<br><em>pizzas.</em></h1><p class="lead">Sabores artesanales preparados para compartir. Todas a Bs 75, de 8 porciones; pedido mínimo de 10 pizzas.</p></div><div class="pz-grid" id="pizzaGrid"></div><div class="pz-note"><p>¿Tienes un gusto distinto? También las armamos a tu medida: cuéntanos qué prefieres y lo vemos.</p><a class="primary-btn" data-wa="pizzas" href="#" target="_blank" rel="noopener">Consultar por las pizzas</a></div></div></section>
 <section class="page" id="page-horno"><div class="oven-page"><div class="story-layout"><div class="story-text"><h1 class="display">El horno</h1><p class="lead">El horno portátil a leña es parte de la experiencia: lo llevamos al evento y preparamos las pizzas en el lugar.</p><div class="oven-note"><span class="eyebrow">PARA COTIZAR TU EVENTO</span><p>Escríbenos para consultar las condiciones del servicio y los detalles del horno y la leña.</p><button class="text-link" data-go="catering" type="button">Ver servicio de catering <span aria-hidden="true">↗</span></button></div></div><div class="oven-panel"><img src="horno.svg" alt="Horno de Linguine"></div></div><div class="oven-media"><figure class="om"><video muted loop playsinline preload="none" poster="video-12-horno-poster.webp" data-src="video-12-horno.mp4" aria-label="Horno encendido junto a la leña"></video></figure><figure class="om"><img src="imagen-6.webp" alt="Preparando pizzas junto al horno" loading="lazy"></figure></div></div></section>
 <section class="page" id="page-galeria"><div class="gal-page"><div class="page-intro"><h1 class="display">Galería</h1><p class="lead">Así se vive Linguine en cada evento.</p></div><div class="oven-frame"><div class="oven-shell"><div class="oven-mouth" id="galGrid"></div></div><div class="oven-base"></div></div><div class="vrail-head"><h2 class="section-title">Videos</h2></div><div class="vrail" id="reel"></div></div></section>
@@ -1282,7 +1331,7 @@ const reel=[
 function imageMarkup(src,alt){return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none';this.nextElementSibling.style.display='none';this.parentElement.classList.add('image-unavailable')"/><div class="photo-fallback"><span>${alt}</span></div>`}
 function pizzaCard(p){return `<article class="pz"><div class="pz-photo">${imageMarkup(p.image,p.name)}</div><div class="pz-body"><div class="pz-top"><h3>${p.name}</h3><span class="price">${PRICE}</span></div><p>${p.desc}</p></div></article>`}
 function renderPizzas(){document.getElementById('pizzaGrid').innerHTML=pizzas.map(pizzaCard).join('')}
-function renderFeatured(){document.getElementById('featuredGrid').innerHTML=pizzas.slice(0,3).map(p=>`<article class="feature-card"><div class="feature-img">${imageMarkup(p.image,p.name)}</div><div class="feature-info"><div><h3>${p.name}</h3><p>8 porciones</p></div><span class="price">${PRICE}</span></div></article>`).join('')}
+function renderFeatured(){document.getElementById('homePizzas').innerHTML=pizzas.map(p=>`<article class="v3-pizza"><div class="ph">${imageMarkup(p.image,p.name)}</div><div class="tx"><h3>${p.name}</h3><p>${p.desc}</p></div></article>`).join('')}
 function renderGallery(){document.getElementById('galGrid').innerHTML=gallery.map((g,i)=>`<div class="gal-item g${i+1}${g.video?' is-video':''}">${imageMarkup(g.image,g.alt)}</div>`).join('')}
 function renderReel(){document.getElementById('reel').innerHTML=reel.map((r,i)=>`<button class="vcard" data-i="${i}"><img src="${r.image}" alt="${r.alt}" loading="lazy"></button>`).join('')}
 function renderStaticImages(){document.querySelectorAll('[data-img]').forEach(el=>{el.innerHTML=imageMarkup(el.dataset.img,el.dataset.alt)})}
@@ -1331,56 +1380,3 @@ const intro=document.getElementById('intro');document.querySelectorAll('.intro-a
 const initial=location.hash.replace('#','');if(['inicio','catering','pizzas','horno','galeria','contacto'].includes(initial))go(initial);
 </script>
 </body></html>
-
-<style>
-/* Ajuste de marcos Linguine: sustituye líneas sueltas por contenedores completos */
-:root{--linguine-frame:rgba(254,217,149,.30);--linguine-frame-bg:#151412;}
-/* Las tarjetas conservan un marco fino y visible en sus cuatro lados. */
-.step-card,.feature-card,.pz{
-  border:1px solid var(--linguine-frame) !important;
-  background:var(--linguine-frame-bg) !important;
-  overflow:hidden;
-}
-.step-image,.feature-img,.pz-photo,.cat-feature-photo,
-.process-v2 .process-video,.om,.gal-item,.vcard,.oven-panel,
-.home-media-main,.home-media-side,.cat-feature,.contact-panel{
-  border:1px solid var(--linguine-frame) !important;
-  box-shadow:none !important;
-}
-/* Etiquetas y datos que antes tenían una sola línea lateral: ahora quedan contenidos. */
-.hero-image-caption,.offer-howto{
-  border:1px solid var(--linguine-frame) !important;
-  border-left:1px solid var(--linguine-frame) !important;
-  border-right:1px solid var(--linguine-frame) !important;
-  background:#171614 !important;
-  padding:14px 16px !important;
-}
-.service-ribbon>div,.service-ribbon>div:first-child,
-.offer-fact,.offer-fact+ .offer-fact{
-  border:1px solid var(--linguine-frame) !important;
-  background:#151412;
-  padding:16px 18px !important;
-}
-.service-ribbon>div{min-width:0;}
-.offer-facts{border:0 !important;gap:12px;padding:0 !important;}
-/* No dejar separadores verticales sueltos entre elementos. */
-.service-ribbon>div,.offer-fact{border-right:1px solid var(--linguine-frame) !important;}
-/* Los botones de texto también tienen un contorno completo, no una raya inferior aislada. */
-.line-button{
-  min-height:46px;
-  padding:10px 13px !important;
-  border:1px solid rgba(254,217,149,.52) !important;
-  background:#151412 !important;
-  gap:12px;
-}
-.line-button span{border:0 !important;}
-@media(max-width:700px){
-  .service-ribbon{gap:9px !important;}
-  .service-ribbon>div,.service-ribbon>div:first-child{padding:12px 14px !important;border:1px solid var(--linguine-frame) !important;}
-  .offer-facts{grid-template-columns:1fr;gap:9px !important;}
-  .offer-fact,.offer-fact+ .offer-fact{padding:14px 15px !important;border:1px solid var(--linguine-frame) !important;}
-  .hero-image-caption,.offer-howto{padding:12px 13px !important;}
-  .step-card,.feature-card,.pz{border:1px solid var(--linguine-frame) !important;}
-  .line-button{width:100%;}
-}
-</style>
