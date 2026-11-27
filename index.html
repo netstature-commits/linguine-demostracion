@@ -1266,11 +1266,15 @@ button.secondary-btn:after{
  .note-i{width:26px;height:26px;font-size:14px}
  .v3-events .v3-wrap{padding-top:56px;padding-bottom:58px}
  .v3-ev-head{margin-bottom:26px}
- .v3-ev-grid{gap:12px}
- .v3-ev{min-height:168px;padding:18px}
- .v3-ev svg{width:34px;height:34px}
- .v3-ev .n{font-size:22px}
- .v3-ev .go{font-size:10px}
+ .v3-ev-grid{grid-template-columns:1fr;gap:10px}
+ .v3-ev{flex-direction:row;align-items:center;gap:16px;min-height:84px;padding:16px 20px}
+ .v3-ev svg{width:34px;height:34px;margin:0;flex:none}
+ .v3-ev .n{flex:1;min-width:0;font-size:25px;overflow-wrap:anywhere}
+ .v3-ev .go{font-size:0;line-height:1}
+ .v3-ev .go b{font-size:24px;font-weight:400}
+ .v3-ev:hover,.v3-ev:focus-visible{transform:none}
+ .v3-ev:active{background:var(--red);color:#170d0b}
+ .v3-ev:active .n,.v3-ev:active .go{color:#170d0b}
 }
 </style>
 </head>
