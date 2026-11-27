@@ -1248,7 +1248,7 @@ button.secondary-btn:after{
 .v3-ev-head h2{font:400 clamp(32px,4.4vw,56px)/1.04 var(--serif);letter-spacing:-.04em;margin:0 0 12px;text-wrap:balance}
 .v3-ev-head em{font-style:italic;color:#b3302a}
 .v3-ev-head p{margin:0;font-size:16px;line-height:1.6;color:#43301f}
-.v3-ev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.v3-ev-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .v3-ev{display:flex;flex-direction:column;gap:12px;min-height:220px;padding:24px;background:#11100f;color:var(--red);transition:background .25s,transform .25s}
 .v3-ev svg{width:42px;height:42px;margin-bottom:auto}
 .v3-ev .n{font:400 clamp(26px,2.5vw,32px)/1.1 var(--serif);letter-spacing:-.02em;color:#fff}
@@ -1258,7 +1258,7 @@ button.secondary-btn:after{
 .v3-ev:hover .n,.v3-ev:hover .go,.v3-ev:focus-visible .n,.v3-ev:focus-visible .go{color:#170d0b}
 .v3-ev:hover .go b{transform:translateX(5px)}
 .v3-ev:focus-visible{outline:3px solid #170d0b;outline-offset:3px}
-@media(max-width:1000px){.v3-ev-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1000px){.v3-ev-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
  .v3-statement .v3-wrap{padding-top:58px;padding-bottom:60px}
  .v3-statement p{padding-top:24px}
@@ -1266,16 +1266,26 @@ button.secondary-btn:after{
  .note-i{width:26px;height:26px;font-size:14px}
  .v3-events .v3-wrap{padding-top:56px;padding-bottom:58px}
  .v3-ev-head{margin-bottom:26px}
- .v3-ev-grid{grid-template-columns:1fr;gap:10px}
+ .v3-ev-grid{grid-template-columns:minmax(0,1fr);gap:10px}
  .v3-ev{flex-direction:row;align-items:center;gap:16px;min-height:84px;padding:16px 20px}
  .v3-ev svg{width:34px;height:34px;margin:0;flex:none}
- .v3-ev .n{flex:1;min-width:0;font-size:25px;overflow-wrap:anywhere}
+ .v3-ev .n{flex:1;min-width:0;font-size:clamp(20px,6.4vw,25px);overflow-wrap:anywhere}
  .v3-ev .go{font-size:0;line-height:1}
  .v3-ev .go b{font-size:24px;font-weight:400}
  .v3-ev:hover,.v3-ev:focus-visible{transform:none}
  .v3-ev:active{background:var(--red);color:#170d0b}
  .v3-ev:active .n,.v3-ev:active .go{color:#170d0b}
 }
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.v3-ev{min-width:0}
+
+/* ===== Seguridad en celular: nada se desliza de lado ===== */
+html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
+.v3-ev-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.v3-ev-grid>*,.v3-pizzas>*,.v3-steps>*{min-width:0}
+.v3-ev .n{min-width:0;overflow-wrap:anywhere}
+@media(max-width:1000px){.v3-ev-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.v3-ev-grid{grid-template-columns:minmax(0,1fr)}.v3-pizzas{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
