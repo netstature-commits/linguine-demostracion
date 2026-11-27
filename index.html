@@ -1280,7 +1280,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .v3-ev{min-width:0}
 
 /* ===== Seguridad en celular: nada se desliza de lado ===== */
-html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
+@supports (overflow:clip){main,footer{overflow-x:clip}}
 .v3-ev-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .v3-ev-grid>*,.v3-pizzas>*,.v3-steps>*{min-width:0}
 .v3-ev .n{min-width:0;overflow-wrap:anywhere}
